@@ -21,7 +21,7 @@ from TelegramBot.helpers.start_constants import (
 
 from TelegramBot.configuration.LLMApiConfig import GROQ_API_KEY, LLM_PROVIDER_API_URL
 from TelegramBot.configuration.Prompts import INITIAL_PROMPT
-from TelegramBot.LLM.service.Generate import generate_example_response
+from TelegramBot.LLM.service.Generate import generateResponse
 
 START_BUTTON = [
     [
@@ -71,44 +71,41 @@ async def botCallbacks(_, CallbackQuery: CallbackQuery):
             "This command is not initiated by you.", show_alert=True
         )
 
-    if CallbackQuery.data == "SUDO_BUTTON":
-        if clicker_user_id not in SUDO_USERID:
-            return await CallbackQuery.answer(
-                "You are not in the sudo user list.", show_alert=True
+     # Utilizzo del match-case per gestire i vari casi
+    match CallbackQuery.data:
+        case "SUDO_BUTTON":
+            if clicker_user_id not in SUDO_USERID:
+                return await CallbackQuery.answer(
+                    "You are not in the sudo user list.", show_alert=True
+                )
+            await CallbackQuery.edit_message_text(
+                SUDO_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
             )
-        await CallbackQuery.edit_message_text(
-            SUDO_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
-        )
-
-    elif CallbackQuery.data == "DEV_BUTTON":
-        if clicker_user_id not in OWNER_USERID:
-            return await CallbackQuery.answer(
-                "This is developer restricted command.", show_alert=True
+        case "DEV_BUTTON":
+            if clicker_user_id not in OWNER_USERID:
+                return await CallbackQuery.answer(
+                    "This is developer restricted command.", show_alert=True
+                )
+            await CallbackQuery.edit_message_text(
+                DEV_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
             )
-        await CallbackQuery.edit_message_text(
-            DEV_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
-        )
-
-    if CallbackQuery.data == "ABOUT_BUTTON":
-        await CallbackQuery.edit_message_text(
-            ABOUT_CAPTION, reply_markup=InlineKeyboardMarkup(GOBACK_1_BUTTON)
-        )
-
-    elif CallbackQuery.data == "START_BUTTON":
-        await CallbackQuery.edit_message_text(
-            START_CAPTION, reply_markup=InlineKeyboardMarkup(START_BUTTON)
-        )
-
-# qua al posto di command caption va generata la domanda
-    elif CallbackQuery.data == "COMMAND_BUTTON":
-        await CallbackQuery.edit_message_text(
-            await generate_example_response(INITIAL_PROMPT), reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON) 
-        )
-
-    elif CallbackQuery.data == "USER_BUTTON":
-        await CallbackQuery.edit_message_text(
-            USER_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
-        )
+        case "ABOUT_BUTTON":
+            await CallbackQuery.edit_message_text(
+                ABOUT_CAPTION, reply_markup=InlineKeyboardMarkup(GOBACK_1_BUTTON)
+            )
+        case "START_BUTTON":
+            await CallbackQuery.edit_message_text(
+                START_CAPTION, reply_markup=InlineKeyboardMarkup(START_BUTTON)
+            )
+        case "COMMAND_BUTTON":
+            await CallbackQuery.edit_message_text(
+                await generateResponse([INITIAL_PROMPT]),
+                reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
+            )
+        case "USER_BUTTON":
+            await CallbackQuery.edit_message_text(
+                USER_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
+            )
     await CallbackQuery.answer()
 
 
