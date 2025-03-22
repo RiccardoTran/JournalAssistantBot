@@ -19,27 +19,31 @@ from TelegramBot.helpers.start_constants import (
     SUDO_TEXT,
 )
 
+from TelegramBot.configuration.LLMApiConfig import GROQ_API_KEY, LLM_PROVIDER_API_URL
+from TelegramBot.configuration.Prompts import INITIAL_PROMPT
+from TelegramBot.LLM.service.Generate import generate_example_response
 
 START_BUTTON = [
     [
-        InlineKeyboardButton("📖 Commands", callback_data="COMMAND_BUTTON"),
-        InlineKeyboardButton("👨‍💻 About me", callback_data="ABOUT_BUTTON"),
+        InlineKeyboardButton("📖 Log my day", callback_data="COMMAND_BUTTON"),
     ],
-    [
-        InlineKeyboardButton(
-            "🔭 Original Repo",
-            url="https://github.com/sanjit-sinha/TelegramBot-Boilerplate",
-        )
-    ],
+    # [
+    #     InlineKeyboardButton(
+    #         "🔭 Original Repo",
+    #         url="https://github.com/sanjit-sinha/TelegramBot-Boilerplate",
+    #     )
+    # ],
 ]
 
 
 COMMAND_BUTTON = [
     [
-        InlineKeyboardButton("Users", callback_data="USER_BUTTON"),
-        InlineKeyboardButton("Sudo", callback_data="SUDO_BUTTON"),
+        InlineKeyboardButton("A", callback_data="USER_BUTTON"),
+        InlineKeyboardButton("B", callback_data="SUDO_BUTTON"),
+        InlineKeyboardButton("C", callback_data="USER_BUTTON"),
+        InlineKeyboardButton("D", callback_data="SUDO_BUTTON")
     ],
-    [InlineKeyboardButton("Developer", callback_data="DEV_BUTTON")],
+    [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
     [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
 ]
 
@@ -95,9 +99,10 @@ async def botCallbacks(_, CallbackQuery: CallbackQuery):
             START_CAPTION, reply_markup=InlineKeyboardMarkup(START_BUTTON)
         )
 
+# qua al posto di command caption va generata la domanda
     elif CallbackQuery.data == "COMMAND_BUTTON":
         await CallbackQuery.edit_message_text(
-            COMMAND_CAPTION, reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
+            await generate_example_response(INITIAL_PROMPT), reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON) 
         )
 
     elif CallbackQuery.data == "USER_BUTTON":

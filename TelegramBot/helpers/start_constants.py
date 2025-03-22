@@ -51,6 +51,6 @@ ABOUT_CAPTION = f"""• Python version : {__python_version__}
 
 START_ANIMATION = "https://telegra.ph/file/c0857672b427bec8542f6.mp4"
 
-START_CAPTION = """Hey there!! I am simple Telegram Bot which is made for the purpose for trying, testing, deploying and learning about Telegram Bot using python pyrogram framework. \n\nUse buttons to navigate and know more about me :)"""
+START_CAPTION = """Hey There! I will hep you log your day through my questions. \n\n When you're ready, press Log My Day."""
 
 COMMAND_CAPTION = """**Here are the list of commands which you can use in bot.\n**"""
