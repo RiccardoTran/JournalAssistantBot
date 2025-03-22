@@ -1,6 +1,6 @@
-[22-Mar-25 13:33:01 - INFO] - TelegramBot - Starting TelegramBot....
-[22-Mar-25 13:33:01 - INFO] - TelegramBot - setting up event loop....
-[22-Mar-25 13:33:01 - INFO] - TelegramBot - 
+[22-Mar-25 14:42:25 - INFO] - TelegramBot - Starting TelegramBot....
+[22-Mar-25 14:42:25 - INFO] - TelegramBot - setting up event loop....
+[22-Mar-25 14:42:25 - INFO] - TelegramBot - 
 ____________________________________________________________________
 |  _______   _                                ____        _        |
 | |__   __| | |                              |  _ \      | |       |
@@ -11,11 +11,231 @@ ____________________________________________________________________
 |                    __/ |                                         |
 |__________________________________________________________________|
 
-[22-Mar-25 13:33:01 - INFO] - TelegramBot - checking MongoDb URI....
-[22-Mar-25 13:33:02 - INFO] - TelegramBot - creating telegraph session....
-[22-Mar-25 13:33:02 - INFO] - TelegramBot - initiating the client....
-[22-Mar-25 13:33:02 - INFO] - __main__ - client successfully initiated....
-[22-Mar-25 13:33:16 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
-[22-Mar-25 13:33:17 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
-[22-Mar-25 13:33:25 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
-[22-Mar-25 13:33:37 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[22-Mar-25 14:42:25 - INFO] - TelegramBot - checking MongoDb URI....
+[22-Mar-25 14:42:26 - INFO] - TelegramBot - creating telegraph session....
+[22-Mar-25 14:42:26 - INFO] - TelegramBot - initiating the client....
+[22-Mar-25 14:42:26 - INFO] - __main__ - client successfully initiated....
+[22-Mar-25 14:43:07 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:43:08 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 152, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:43:10 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:43:10 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:43:36 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:43:36 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:02 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:02 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 187, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:09 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:09 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:10 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:11 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:12 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:12 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 187, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:14 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:14 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:16 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:16 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:18 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:18 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 187, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:19 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:20 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:21 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:21 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:22 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:22 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:24 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:24 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 187, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:26 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:26 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:28 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:28 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:32 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:32 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:44:34 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:44:34 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:45:40 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:45:40 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:45:48 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:45:48 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:45:56 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:45:56 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:46:55 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:46:56 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:46:56 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:46:56 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 169, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:47:06 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:47:06 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:48:51 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:48:51 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 187, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:48:59 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:48:59 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:49:05 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:49:06 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 178, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined
+[22-Mar-25 14:49:20 - INFO] - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[22-Mar-25 14:49:20 - ERROR] - pyrogram.dispatcher - name 'chat_history' is not defined
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/Users/macbook/journalAssistantBot/TelegramBot-Boilerplate/TelegramBot/plugins/users/start.py", line 160, in botCallbacks
+    chat_history.append(prompt)
+NameError: name 'chat_history' is not defined

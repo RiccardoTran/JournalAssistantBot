@@ -20,7 +20,7 @@ from TelegramBot.helpers.start_constants import (
 )
 
 from TelegramBot.configuration.LLMApiConfig import GROQ_API_KEY, LLM_PROVIDER_API_URL
-from TelegramBot.configuration.Prompts import INITIAL_PROMPT
+from TelegramBot.configuration.Prompts import INITIAL_PROMPT, PREVIOUS_QUESTION, ANSWER_WAS
 from TelegramBot.LLM.service.Generate import generateResponse
 
 START_BUTTON = [
@@ -38,10 +38,50 @@ START_BUTTON = [
 
 COMMAND_BUTTON = [
     [
-        InlineKeyboardButton("A", callback_data="USER_BUTTON"),
-        InlineKeyboardButton("B", callback_data="SUDO_BUTTON"),
-        InlineKeyboardButton("C", callback_data="USER_BUTTON"),
-        InlineKeyboardButton("D", callback_data="SUDO_BUTTON")
+        InlineKeyboardButton("A", callback_data="A_BUTTON"),
+        InlineKeyboardButton("B", callback_data="B_BUTTON"),
+        InlineKeyboardButton("C", callback_data="C_BUTTON"),
+        InlineKeyboardButton("D", callback_data="D_BUTTON")
+    ],
+    [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
+    [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
+]
+A_BUTTON = [
+    [
+        InlineKeyboardButton("A", callback_data="A_BUTTON"),
+        InlineKeyboardButton("B", callback_data="B_BUTTON"),
+        InlineKeyboardButton("C", callback_data="C_BUTTON"),
+        InlineKeyboardButton("D", callback_data="D_BUTTON")
+    ],
+    [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
+    [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
+]
+B_BUTTON = [
+    [
+        InlineKeyboardButton("A", callback_data="A_BUTTON"),
+        InlineKeyboardButton("B", callback_data="B_BUTTON"),
+        InlineKeyboardButton("C", callback_data="C_BUTTON"),
+        InlineKeyboardButton("D", callback_data="D_BUTTON")
+    ],
+    [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
+    [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
+]
+C_BUTTON = [
+    [
+        InlineKeyboardButton("A", callback_data="A_BUTTON"),
+        InlineKeyboardButton("B", callback_data="B_BUTTON"),
+        InlineKeyboardButton("C", callback_data="C_BUTTON"),
+        InlineKeyboardButton("D", callback_data="D_BUTTON")
+    ],
+    [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
+    [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
+]
+D_BUTTON = [
+    [
+        InlineKeyboardButton("A", callback_data="A_BUTTON"),
+        InlineKeyboardButton("B", callback_data="B_BUTTON"),
+        InlineKeyboardButton("C", callback_data="C_BUTTON"),
+        InlineKeyboardButton("D", callback_data="D_BUTTON")
     ],
     [InlineKeyboardButton("Generate more", callback_data="DEV_BUTTON")],
     [InlineKeyboardButton("🔙 Go Back", callback_data="START_BUTTON")],
@@ -62,6 +102,8 @@ async def start(_, message: Message):
 
 @bot.on_callback_query(filters.regex("_BUTTON"))
 async def botCallbacks(_, CallbackQuery: CallbackQuery):
+    global chat_history 
+    global prompt 
 
     clicker_user_id = CallbackQuery.from_user.id
     user_id = CallbackQuery.message.reply_to_message.from_user.id
@@ -73,39 +115,77 @@ async def botCallbacks(_, CallbackQuery: CallbackQuery):
 
      # Utilizzo del match-case per gestire i vari casi
     match CallbackQuery.data:
-        case "SUDO_BUTTON":
-            if clicker_user_id not in SUDO_USERID:
-                return await CallbackQuery.answer(
-                    "You are not in the sudo user list.", show_alert=True
-                )
-            await CallbackQuery.edit_message_text(
-                SUDO_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
-            )
-        case "DEV_BUTTON":
-            if clicker_user_id not in OWNER_USERID:
-                return await CallbackQuery.answer(
-                    "This is developer restricted command.", show_alert=True
-                )
-            await CallbackQuery.edit_message_text(
-                DEV_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
-            )
-        case "ABOUT_BUTTON":
-            await CallbackQuery.edit_message_text(
-                ABOUT_CAPTION, reply_markup=InlineKeyboardMarkup(GOBACK_1_BUTTON)
-            )
+        # case "SUDO_BUTTON":
+        #     if clicker_user_id not in SUDO_USERID:
+        #         return await CallbackQuery.answer(
+        #             "You are not in the sudo user list.", show_alert=True
+        #         )
+        #     await CallbackQuery.edit_message_text(
+        #         SUDO_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
+        #     )
+        # case "DEV_BUTTON":
+        #     if clicker_user_id not in OWNER_USERID:
+        #         return await CallbackQuery.answer(
+        #             "This is developer restricted command.", show_alert=True
+        #         )
+        #     await CallbackQuery.edit_message_text(
+        #         DEV_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
+        #     )
+        # case "ABOUT_BUTTON":
+        #     await CallbackQuery.edit_message_text(
+        #         ABOUT_CAPTION, reply_markup=InlineKeyboardMarkup(GOBACK_1_BUTTON)
+        #     )
+        # case "USER_BUTTON":
+        #     await CallbackQuery.edit_message_text(
+        #         USER_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
+        #     )
         case "START_BUTTON":
             await CallbackQuery.edit_message_text(
                 START_CAPTION, reply_markup=InlineKeyboardMarkup(START_BUTTON)
             )
         case "COMMAND_BUTTON":
+            prompt = await generateResponse([INITIAL_PROMPT])
             await CallbackQuery.edit_message_text(
-                await generateResponse([INITIAL_PROMPT]),
+                prompt,
                 reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
             )
-        case "USER_BUTTON":
+            chat_history.append(prompt)
+        case "A_BUTTON":
+            old_prompt = prompt
+            prompt = await generateResponse([INITIAL_PROMPT, PREVIOUS_QUESTION, old_prompt, ANSWER_WAS, "A"])
             await CallbackQuery.edit_message_text(
-                USER_TEXT, reply_markup=InlineKeyboardMarkup(GOBACK_2_BUTTON)
+                prompt,
+                reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
             )
+            chat_history.append(prompt)
+        case "B_BUTTON":
+            old_prompt = prompt
+            prompt = await generateResponse([INITIAL_PROMPT, PREVIOUS_QUESTION, old_prompt, ANSWER_WAS, "B"])
+            await CallbackQuery.edit_message_text(
+                prompt,
+                reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
+            )
+            
+            chat_history.append(prompt)
+        case "C_BUTTON":
+            old_prompt = prompt
+            prompt = await generateResponse([INITIAL_PROMPT, PREVIOUS_QUESTION, old_prompt, ANSWER_WAS, "C"])
+            await CallbackQuery.edit_message_text(
+                prompt,
+                reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
+            )
+            
+            chat_history.append(prompt)
+        case "D_BUTTON":
+            old_prompt = prompt
+            prompt = await generateResponse([INITIAL_PROMPT, PREVIOUS_QUESTION, old_prompt, ANSWER_WAS, "D"])
+            await CallbackQuery.edit_message_text(
+                prompt,
+                reply_markup=InlineKeyboardMarkup(COMMAND_BUTTON)
+            )
+            
+            chat_history.append(prompt)
+        
     await CallbackQuery.answer()
 
 

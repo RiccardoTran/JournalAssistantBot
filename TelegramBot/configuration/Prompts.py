@@ -1,1 +1,4 @@
-INITIAL_PROMPT = "today i want to log my day. Give me a question with 4 answers mapped as A B C D, your objective is to try to predict what i’ve done during the day, and my role is to answer your question to help you figure it out.  i will always answer you either A, B, C or D, or generate new answer. In this last case you have to repeat the same questions, but with 4 new generated answers that are different from the past ones. Let’s start"
+INITIAL_PROMPT = "today i want to log my day. Give me a question with 4 answers mapped as A B C D, your objective is to try to predict what i’ve done during the day, and my role is to answer your question to help you figure it out.  i will always answer you either A, B, C or D, or generate new answer. In this last case you have to repeat the same questions, but with 4 new generated answers that are different from the past ones. The 4 answers must be in first person, to add immersion for the user. Let’s start"
+
+PREVIOUS_QUESTION="The previous question was"
+ANSWER_WAS = "And the answer was"
